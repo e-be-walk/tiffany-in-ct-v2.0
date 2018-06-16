@@ -2,25 +2,38 @@ class SessionsController < ApplicationController
 
   def new
     @user = User.new
+    @users = User.all
   end
 
   def create
-    if auth
-      user = User.find_by(email: user_params[:email])
-      current_user(user)
-      redirect_to user_path
-    else
-      user = User.find_by(email: user_params[:email])
-      if user && user.authenticate(user_params[:password])
-        current_user(user)
-        redirect_to user_path
+    if @user = User.find_by(email: params[:email])
+      if @user && @user.authenticate(params[:password])
+        #@user = current_user
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
       else
-        flash[:message] = "Incorrect Login Information."
-        redirect_to login_path
+        redirect_to new_user_url
       end
+    else
+      @user = User.new
+      redirect_to new_user_url
     end
   end
 
+  def facebook
+    if auth
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+        u.password = params[:code][0..71]
+      end
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      @user = User.new
+      redirect_to new_user_url
+    end
+  end
 
   def destroy
     session[:user_id] = nil
