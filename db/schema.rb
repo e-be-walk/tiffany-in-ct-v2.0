@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_15_125938) do
+ActiveRecord::Schema.define(version: 2018_06_17_000258) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "comment_text"
+    t.integer "user_comments_id"
+    t.string "user_comments_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_comments_id", "user_comments_type"], name: "index_comments_on_user_comments_id_and_user_comments_type"
+  end
 
   create_table "sites", force: :cascade do |t|
     t.integer "user_id"

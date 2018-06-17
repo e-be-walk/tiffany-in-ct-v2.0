@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :comments
   get '/signin' => 'sessions#new'
   post '/signin', to: 'sessions#create'
   get '/auth/facebook/callback' => 'sessions#facebook'
