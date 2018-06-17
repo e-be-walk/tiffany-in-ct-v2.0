@@ -1,10 +1,10 @@
 <h1><%= "Hello, #{@user.name}." %> </h1>
 
   <h2>What would you like to do today?</h2>
-  <h3><%= link_to "Create a new site", new_user_site_path(current_user, @site) %></h3><br>
+  <h3><%= link_to "Create a new site", new_site_path(current_user, @site) %></h3><br>
 
     <h3>Update one of your existing sites:</h3>
     <% current_user.sites.each do |site| %>
     <%= image_tag site.image.url(:medium) %><br>
-    <%= link_to "View or update this site", user_site_path(current_user) %><br>
+    <%= link_to "View or update this site", site_path(current_user, @site) %><br>
     <% end %>

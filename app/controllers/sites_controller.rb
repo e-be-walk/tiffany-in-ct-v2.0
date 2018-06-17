@@ -1,9 +1,9 @@
 class SitesController < ApplicationController
 
   def show
-    @site = Site.find_by(id: params[:id])
-    @user = current_user
-    @comments = Comment.find_by(site_id: params[:site_id])
+    @site = Site.find(params[:id])
+    #@user = current_user
+    #@comments = Comment.find_by(site_id: params[:site_id])
   end
 
   def new
@@ -11,25 +11,32 @@ class SitesController < ApplicationController
   end
 
   def create
-    @user = current_user
+    #@user = current_user
     @site = Site.create(site_params)
     @site.save
-    current_user.sites << @site
-    redirect_to new_user_site_path(@site)
+    #current_user.sites << @site
+    redirect_to site_path(@site)
   end
 
   def edit
+    @site = Site.find(params[:id])
   end
 
   def update
     @site = Site.find(params[:id])
     @site.update(site_params)
     if @site.save
-      redirect_to user_site_path(@site)
+      redirect_to site_path(@site)
     else
       render :edit
     end
-  end 
+  end
+
+  def destroy
+    @site = Site.find(params[:id])
+    @site.destroy
+    redirect_to user_path(current_user)
+  end
 
 
   private

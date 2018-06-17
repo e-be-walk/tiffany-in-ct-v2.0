@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   root 'welcome#about'
 
 
-  resources :users do
-    resources :sites do
-      resources :windows
-    end
+  resources :users
+  resources :sites do
+    resources :windows
   end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
