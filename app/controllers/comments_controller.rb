@@ -18,8 +18,8 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(
       :comment_text,
-      :user_comments_id,
-      :user_comments_type
+      :user_id,
+      :site_id
     )
-  end 
+  end
 end
