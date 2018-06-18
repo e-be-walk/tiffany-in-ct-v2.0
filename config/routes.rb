@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get '/index' => 'welcome#index'
   root 'welcome#about'
 
-
   resources :users
   resources :sites do
     resources :windows

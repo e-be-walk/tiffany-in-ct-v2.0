@@ -13,6 +13,11 @@ class WindowsController < ApplicationController
     #@window = Window.new
   end
 
+  def edit
+    @site = Site.find(params[:site_id])
+    @window = Window.find(params[:id])
+  end
+
   def create
     @user = current_user
     @site = Site.find(params[:site_id])
@@ -23,19 +28,15 @@ class WindowsController < ApplicationController
     redirect_to site_window_path(@site, @window)
   end
 
-  def edit
-    #@site = Site.find(params[:site_id])
-    #@window = Window.find_by(params[:id])
-  end
-
   def update
-    @user = current_user
-    @site = Site.find(params[:site_id])
+    raise params.inspect
+    #@user = current_user
+    #@site = Site.find(params[:site_id])
     @window = Window.find(params[:id])
     @window.update(window_params)
     @window.save
-    @site.windows << @window
-    redirect_to site_window_path(@site, @window)
+    #@site.window << @window
+    redirect_to site_window_path(@window)
   end
 
   def destroy
