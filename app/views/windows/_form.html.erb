@@ -1,6 +1,6 @@
 <div class='site_container'>
   <div class='form'>
-    <%= form_for [@site, @window], url: site_windows_path(@site, @window), html: { multipart: true } do |f| %>
+    <%= form_for [@site, @window], html: { multipart: true } do |f| %>
 
     <%= f.label :name %>
     <%= f.text_field :name %><br>
