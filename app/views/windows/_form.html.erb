@@ -1,0 +1,25 @@
+<div class='site_container'>
+  <div class='form'>
+    <%= form_for @window do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :year_created %>
+    <%= f.text_field :year_created %><br>
+
+    <%= f.label :dedication %>
+    <%= f.text_field :dedication %><br>
+
+    <%= f.label :window_info %>
+    <%= f.text_field :window_info %><br>
+
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+
+    <%= f.hidden_field :site_id, value: :site_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Submit this window", class:"submit" %>
+  <% end %>
+  </div>
+</div>

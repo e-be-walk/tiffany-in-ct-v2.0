@@ -1,0 +1,15 @@
+<div class='site_container'>
+  <%= image_tag @window.image.url(:large) %><br>
+</div>
+<div class='info'>
+  <h1><%= "#{@window.name}" %></h1><br>
+  <h2><%= "#{@window.year_created}" %></h2><br>
+  <h2><%= "#{@window.dedication}" %></h2><br>
+  <h2><%= "#{@window.window_info}" %></h2><br>
+
+
+  <% if current_user.site_admin? %>
+  <%= link_to "Edit this window", edit_site_window_path(@window) %>
+  <%= link_to "Delete this window", site_window_path(@window), :confirm => "Are you sure?", :method => :delete %>
+  <% end %>
+</div>

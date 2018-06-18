@@ -6,5 +6,5 @@
     <h3>Update one of your existing sites:</h3>
     <% current_user.sites.each do |site| %>
     <%= image_tag site.image.url(:medium) %><br>
-    <%= link_to "Update this site", edit_site_path(current_user, @site) %><br>
+    <%= link_to "Update this site", edit_site_path(@site) %><br>
     <% end %>
