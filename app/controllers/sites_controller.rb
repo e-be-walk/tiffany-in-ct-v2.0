@@ -1,8 +1,8 @@
 class SitesController < ApplicationController
 
   def show
+    @user = current_user
     @site = Site.find(params[:id])
-    #@user = current_user
     #@comments = Comment.find_by(site_id: params[:site_id])
   end
 
