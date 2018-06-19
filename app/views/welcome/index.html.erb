@@ -1,0 +1,19 @@
+<h1>Site Entries:</h1>
+<div class="row">
+  <% @sites.each do |site| %>
+    <div class="col-md-3">
+    <%= image_tag site.image.url(:medium) %><br>
+    <h4><%= link_to site.name, site_path(site) %><h4>
+    </div>
+<% end %>
+</div>
+
+<h1>Window Entries:</h1>
+<div class="row">
+  <% @windows.each do |window| %>
+  <div class="col-md-3">
+  <%= image_tag window.image.url(:medium) %><br>
+  <h4><%= link_to window.name, site_window_path(@sites, window) %><h4>
+  </div>
+  <% end %>
+</div>

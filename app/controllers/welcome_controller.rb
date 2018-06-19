@@ -4,5 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def index
+    @sites = Site.all
+    @windows = Window.all
   end
 end
