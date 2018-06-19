@@ -30,8 +30,10 @@
 
 
   <% if current_user.sites.include?(@site) %>
-  <%= link_to "Edit this site", edit_site_path(@site) %><br>
-  <%= link_to "Delete this site", site_path(@site), :confirm => "Are you sure?", :method => :delete %><br>
-  <%= link_to "Add a window to this site", new_site_window_path(@site, @window) %>
+  <div class="link-container">
+    <h4><%= link_to "Edit this site", edit_site_path(@site) %></h4>
+    <h4><%= link_to "Delete this site", site_path(@site), :confirm => "Are you sure?", :method => :delete %></h4>
+    <h4><%= link_to "Add a window to this site", new_site_window_path(@site, @window) %></h4>
+  </div>
   <% end %>
 </div>

@@ -13,8 +13,10 @@
 
 
   <% if current_user.sites.include?(@site) %>
-  <%= link_to "Return to the Site", site_path(@site) %><br>
-  <%= link_to "Edit this window", edit_site_window_path(@site, @window) %><br>
-  <%= link_to "Delete this window", site_window_path(@window), :confirm => "Are you sure?", :method => :delete %><br>
-  <% end %>
+    <div class="link-container">
+      <%= link_to "Return to the Site", site_path(@site) %><br>
+      <%= link_to "Edit this window", edit_site_window_path(@site, @window) %><br>
+      <%= link_to "Delete this window", site_window_path(@window), :confirm => "Are you sure?", :method => :delete %><br>
+    </div>
+    <% end %>
 </div>

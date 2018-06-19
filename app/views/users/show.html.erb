@@ -4,7 +4,11 @@
   <h3><%= link_to "Create a new site", new_site_path(current_user, @site) %></h3><br>
 
     <h3>Update one of your existing sites:</h3>
-    <% current_user.sites.each do |site| %>
-    <%= image_tag site.image.url(:medium) %>
-    <%= link_to site.name, site_path(site) %><br>
+    <div class="row">
+      <% current_user.sites.each do |site| %>
+        <div class="col-md-3">
+        <%= image_tag site.image.url(:medium) %>
+        <%= link_to site.name, site_path(site) %>
+        </div>
     <% end %>
+  </div>
