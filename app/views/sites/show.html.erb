@@ -1,7 +1,12 @@
 <div class='site_container'>
 </div>
 <div class='info'>
-  <%= image_tag @site.image.url(:large) %>
+  <div class="row">
+  <div class="col-md-8">
+    <%= image_tag @site.image.url(:large) %>
+  </div>
+
+  <div class="col-md-4">
   <h1><%= "#{@site.name}" %></h1>
   <h2><%= "#{@site.street_address}" %></h2>
   <h2><%= "#{@site.city}" %></h2>
@@ -9,6 +14,8 @@
   <h2><%= "#{@site.contact_info}" %></h2>
   <h2><%= "#{@site.accessibility}" %></h2>
   <p><%= "#{@site.site_info}" %></p>
+  </div>
+  </div>
 
   <h1>Windows</h1>
     <% @site.windows.each do |window| %>
