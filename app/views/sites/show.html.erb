@@ -10,19 +10,15 @@
   <h2><%= "#{@site.accessibility}" %></h2>
   <p><%= "#{@site.site_info}" %></p>
 
-  <% if current_user.site_admin? %>
-  <%= link_to "Edit this site", edit_site_path(@site) %><br>
-  <%= link_to "Delete this site", site_path(@site), :confirm => "Are you sure?", :method => :delete %><br>
-
-  <% end %>
-
   <h1>Windows</h1>
     <% @site.windows.each do |window| %>
     <%= image_tag window.image.url(:medium) %>
     <h3><%= link_to window.name, site_window_path(@site, window) %></h3>
     <% end %>
 
-  <% if current_user.site_admin? %>
+  <% if current_user.sites.include?(@site) %>
+  <%= link_to "Edit this site", edit_site_path(@site) %><br>
+  <%= link_to "Delete this site", site_path(@site), :confirm => "Are you sure?", :method => :delete %><br>
   <%= link_to "Add a window to this site", new_site_window_path(@site, @window) %>
   <% end %>
 </div>

@@ -1,4 +1,6 @@
 class WindowsController < ApplicationController
+  before_action :validate_user_info
+  skip_before_action :validate_user_info, only: [:show]
 
   def show
     #@site = Site.find(params[:id])
