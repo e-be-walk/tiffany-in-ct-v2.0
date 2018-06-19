@@ -295,6 +295,7 @@ header.masthead .post-heading .meta a {
   margin-right: 15px;
   margin-left: 15px;
 }
+
 .col {
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
@@ -335,6 +336,11 @@ header.masthead .post-heading .meta a {
   -ms-flex: 0 0 40%;
   flex: 0 0 50%;
   max-width: 50%;
+}
+.col-md-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
 }
 }
 

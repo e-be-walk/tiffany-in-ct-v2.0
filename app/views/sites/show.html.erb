@@ -17,11 +17,17 @@
   </div>
   </div>
 
-  <h1>Windows</h1>
+<h1>Windows</h1>
+
+  <div class="row">
     <% @site.windows.each do |window| %>
+    <div class="col-md-3">
     <%= image_tag window.image.url(:medium) %>
     <h3><%= link_to window.name, site_window_path(@site, window) %></h3>
+    </div>
     <% end %>
+  </div>
+
 
   <% if current_user.sites.include?(@site) %>
   <%= link_to "Edit this site", edit_site_path(@site) %><br>
