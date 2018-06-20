@@ -1,8 +1,8 @@
 <h1>Site Search:</h1>
 <div class="row">
-  <% form_tag sites_path, method: :get do %>
-  <%= text_field_tag 'term', params[:term], placeholder: "Submit" %>
-  <%= submit_tag 'Submit' %>
+  <% form_tag sites_path, :method => 'get' do %>
+  <p><%= text_field_tag :search, params[:search], placeholder: "Search" %>
+  <%= submit_tag 'Submit' %></p>
   <% end %>
 </div>
 

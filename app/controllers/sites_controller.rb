@@ -13,8 +13,9 @@ class SitesController < ApplicationController
   end
 
   def index
-    if params[:term]
-      @sites = Site.search_any_word(params[:term])
+    #@sites = Site.text_search(params[:query]).page(params[:page]).per_page(3)
+    if params[:search]
+      @sites = Site.search(params[:search])
     else
       @sites = Site.all
     end
