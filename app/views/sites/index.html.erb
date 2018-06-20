@@ -1,0 +1,17 @@
+<h1>Site Search:</h1>
+<div class="row">
+  <% form_tag sites_path, method: :get do %>
+  <%= text_field_tag 'term', params[:term], placeholder: "Submit" %>
+  <%= submit_tag 'Submit' %>
+  <% end %>
+</div>
+
+<h1>Site Entries:</h1>
+<div class="row">
+  <% @sites.each do |site| %>
+    <div class="col-md-3">
+    <%= image_tag site.image.url(:medium) %><br>
+    <h4><%= link_to site.name, site_path(site) %><h4>
+    </div>
+<% end %>
+</div>

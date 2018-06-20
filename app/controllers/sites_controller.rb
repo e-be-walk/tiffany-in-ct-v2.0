@@ -12,6 +12,14 @@ class SitesController < ApplicationController
     @site = Site.new
   end
 
+  def index
+    if params[:term]
+      @sites = Site.search_any_word(params[:term])
+    else
+      @sites = Site.all
+    end
+  end
+
   def create
     #@user = current_user
     @site = Site.create(site_params)

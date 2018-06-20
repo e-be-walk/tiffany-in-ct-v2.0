@@ -1,0 +1,17 @@
+<h1>Window Search:</h1>
+<div class="row">
+  <% form_tag site_windows_path, method: :get do %>
+  <%= text_field_tag 'term', params[:term], placeholder: "Search" %>
+  <%= submit_tag 'Submit' %>
+  <% end %>
+</div>
+
+<h1>Window Entries:</h1>
+<div class="row">
+  <% @windows.each do |window| %>
+  <div class="col-md-3">
+  <%= image_tag window.image.url(:medium) %><br>
+  <h4><%= link_to window.name, site_window_path(@sites, window) %><h4>
+  </div>
+  <% end %>
+</div>

@@ -39,6 +39,8 @@ gem 'paperclip', '~> 5.1'
 
  gem 'carrierwave', '~>1.0'
 
+ gem 'pg_search'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'thin'

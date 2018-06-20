@@ -3,16 +3,17 @@ class WindowsController < ApplicationController
   skip_before_action :validate_user_info, only: [:show]
 
   def show
-    #@site = Site.find(params[:id])
-    #@user = current_user
     @site = Site.find(params[:site_id])
     @window = Window.find(params[:id])
+  end
+
+  def index
+    @windows = Window.all
   end
 
   def new
     @site = Site.find(params[:site_id])
     @window = @site.windows.build
-    #@window = Window.new
   end
 
   def edit
