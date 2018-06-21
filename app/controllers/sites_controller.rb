@@ -13,12 +13,7 @@ class SitesController < ApplicationController
   end
 
   def index
-    #@sites = Site.text_search(params[:query]).page(params[:page]).per_page(3)
-    if params[:search]
-      @sites = Site.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}"])
-    else
-      @sites = Site.all
-    end
+    @sites = Site.all
   end
 
   def create
@@ -49,6 +44,16 @@ class SitesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def recent
+    @sites = Site.recent
+    render action: :index
+  end
+
+  def active
+    @sites = Site.active
+    render action: :index
+  end
+
 
   private
 
@@ -62,7 +67,8 @@ class SitesController < ApplicationController
       :contact_info,
       :accessibility,
       :site_info,
-      :image
+      :image,
+      :site_windows_count
     )
   end
 end

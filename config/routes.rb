@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sites do
+    collection do
+      get :recent
+      get :active
+    end 
     resources :windows
   end
 

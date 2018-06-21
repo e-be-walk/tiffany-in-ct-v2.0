@@ -1,3 +1,7 @@
+<h1>Filter by:</h1>
+<h3><%= link_to "Recently Added", recent_sites_path %></h3>
+<h3><%= link_to "Sites with the most Windows", active_sites_path %></h3><br>
+
 <h1>Site Entries:</h1>
 <div class="row">
   <% @sites.each do |site| %>

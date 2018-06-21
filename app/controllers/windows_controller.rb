@@ -24,6 +24,7 @@ class WindowsController < ApplicationController
   def create
     @user = current_user
     @site = Site.find(params[:site_id])
+    #raise params.inspect
     @window = Window.create(window_params)
     @window.save
     @site.windows << @window
