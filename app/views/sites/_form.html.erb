@@ -4,32 +4,32 @@
 
     <%= form_for @site do |f| %>
 
-      <%= f.label :name %>
-      <%= f.text_area :name %><br>
+      <p><%= f.label :name %>
+      <%= f.text_field :name %></p>
 
-      <%= f.label :street_address %>
-      <%= f.text_area :street_address %><br>
+      <p><%= f.label :street_address %>
+      <%= f.text_field :street_address %></p>
 
-      <%= f.label :city %>
-      <%= f.text_area :city %><br>
+      <p><%= f.label :city %>
+      <%= f.text_field :city %></p>
 
-      <%= f.label :zip_code %>
-      <%= f.text_area :zip_code %><br>
+      <p><%= f.label :zip_code %>
+      <%= f.text_field :zip_code %></p>
 
-      <%= f.label :contact_info %>
-      <%= f.text_area :contact_info %><br>
+      <p><%= f.label :contact_info %>
+      <%= f.text_area :contact_info %></p>
 
-      <%= f.label :accessibility %>
-      <%= f.text_area :accessibility %><br>
+      <p><%= f.label :accessibility %>
+      <%= f.text_area :accessibility %></p>
 
-      <%= f.label :site_info %>
-      <%= f.text_area :site_info %><br>
+      <p><%= f.label :site_info %>
+      <%= f.text_area :site_info %></p>
 
-      <%= f.label :image %>
-      <%= f.file_field :image %>
+      <p><%= f.label :image %>
+      <%= f.file_field :image %></p>
 
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.submit "Submit Your Site Info" %>
+      <p><%= f.submit "Submit Your Site Info" %></p>
     <% end %>
   </div>
 </div>

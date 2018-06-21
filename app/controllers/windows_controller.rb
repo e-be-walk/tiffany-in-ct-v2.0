@@ -24,12 +24,15 @@ class WindowsController < ApplicationController
   def create
     @user = current_user
     @site = Site.find(params[:site_id])
-    #raise params.inspect
     @window = Window.create(window_params)
-    @window.save
-    @site.windows << @window
-    #raise params.inspect
-    redirect_to site_window_path(@site, @window)
+    if @window.valid?
+      @window.save
+      @site.windows << @window
+      redirect_to site_window_path(@site, @window)
+    else
+      flash[:message] = "Please ensure that at the very least, your window has a name."
+      render :new
+    end
   end
 
   def update

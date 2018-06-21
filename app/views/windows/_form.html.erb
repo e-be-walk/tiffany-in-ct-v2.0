@@ -2,23 +2,23 @@
   <div class='form'>
     <%= form_for [@site, @window], html: { multipart: true } do |f| %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <p><%= f.label :name %>
+    <%= f.text_field :name %></p>
 
-    <%= f.label :year_created %>
-    <%= f.text_field :year_created %><br>
+    <p><%= f.label :year_created %>
+    <%= f.text_field :year_created %></p>
 
-    <%= f.label :dedication %>
-    <%= f.text_field :dedication %><br>
+    <p><%= f.label :dedication %>
+    <%= f.text_area :dedication %></p>
 
-    <%= f.label :window_info %>
-    <%= f.text_field :window_info %><br>
+    <p><%= f.label :window_info %>
+    <%= f.text_area :window_info %></p>
 
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+    <p><%= f.label :image %>
+    <%= f.file_field :image %></p>
 
     <%= f.hidden_field :site_id, :value => @site.id %>
-    <%= f.submit "Submit this window", class:"submit" %>
+    <p><%= f.submit "Submit this window", class:"submit" %></p>
   <% end %>
   </div>
 </div>

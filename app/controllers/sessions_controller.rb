@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
       end
     else
       @user = User.new
+      flash[:message] = "That doesn't match our records. Would you like to create a new account?"
       redirect_to new_user_url
     end
   end

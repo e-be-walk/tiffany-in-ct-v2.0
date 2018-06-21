@@ -7,11 +7,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.valid? 
+    if @user.valid?
       @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      flash[:message] = "Please ensure that you are giving your name and a unique email."
       redirect_to new_user_url
     end
   end

@@ -19,9 +19,13 @@ class SitesController < ApplicationController
   def create
     #@user = current_user
     @site = Site.create(site_params)
-    @site.save
-    #current_user.sites << @site
-    redirect_to site_path(@site)
+    if @site.valid?
+      @site.save
+      redirect_to site_path(@site)
+    else
+      flash[:message] = "Please ensure that at the very least, your site has a name."
+      redirect_to new_site_path
+    end
   end
 
   def edit

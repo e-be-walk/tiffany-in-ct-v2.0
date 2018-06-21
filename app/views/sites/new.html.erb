@@ -1,1 +1,9 @@
+<div class="error">
+  <% if flash[:message] %>
+  <h1><%= flash[:message] %></h1>
+  <% end %>
+</div>
+
+<h1>Create a new site: </h1>
+
 <%= render partial: 'form', locals: {site: @site, current_user: current_user} %>
