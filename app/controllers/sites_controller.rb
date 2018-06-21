@@ -15,7 +15,7 @@ class SitesController < ApplicationController
   def index
     #@sites = Site.text_search(params[:query]).page(params[:page]).per_page(3)
     if params[:search]
-      @sites = Site.search(params[:search])
+      @sites = Site.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}"])
     else
       @sites = Site.all
     end
