@@ -23,13 +23,13 @@ class SessionsController < ApplicationController
 
   def facebook
     if auth
-      @user = User.find_or_create_by_omiauth(auth) do |u|
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.name = auth['info']['name']
         u.email = auth['info']['email']
         u.password = params[:code][0..71]
       end
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       @user = User.new
       redirect_to new_user_url
@@ -37,8 +37,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to '/'
+    reset_session
+    redirect_to root_path
   end
 
   private

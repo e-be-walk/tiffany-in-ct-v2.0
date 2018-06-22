@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     if logged_in?
       @user = User.find_by(id: params[:id])
     else
-      redirect_to '/'
+      flash[:message] = "You must be logged in to see this page. Do you want to create a new profile?"
+      redirect_to new_user_url
     end
   end
 

@@ -19,4 +19,4 @@ All bug reports and pull requests are more than welcome on Github at https://git
 
 # License
 
-All software is available as open source under the terms of the MIT License.
+Copyright (c) 2018 Erin Walker. All software is available as open source under the terms of the MIT License. See [LICENSE](https://github.com/e-be-walk/tiffany-in-ct-v2.0/blob/master/LICENSE) file.
