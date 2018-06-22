@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
   get '/index' => 'welcome#index'
+  get '/windows' => 'windows#index'
+  get '/sites' => 'sites#index'
   root 'welcome#about'
 
   resources :users
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
     collection do
       get :recent
       get :active
-    end 
+    end
     resources :windows
   end
 

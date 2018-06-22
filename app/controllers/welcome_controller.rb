@@ -6,6 +6,7 @@ class WelcomeController < ApplicationController
   def index
     @sites = Site.all
     @windows = Window.all
+    @site = Site.find_by(params[:id])
     @window = Window.find_by(params[:id])
   end
 end
