@@ -1,11 +1,12 @@
 class SitesController < ApplicationController
+  before_action :current_user
   before_action :validate_user_info
   skip_before_action :validate_user_info, only: [:show]
+  skip_before_action :current_user, only: [:show]
 
   def show
-    @user = current_user
+    #@user = current_user
     @site = Site.find(params[:id])
-    #@comments = Comment.find_by(site_id: params[:site_id])
   end
 
   def new

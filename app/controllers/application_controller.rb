@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :current_user, except: [:new, :create, :about, :index]
+  before_action :current_user, except: [:new, :create, :about, :index, :show]
   helper_method :current_user
   helper_method :validate_user_info
 
