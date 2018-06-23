@@ -30,7 +30,7 @@ class SitesController < ApplicationController
   end
 
   def edit
-    @site = Site.find_by(params[:id])
+    @site = Site.find(params[:id])
   end
 
   def update
