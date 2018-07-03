@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   root 'welcome#about'
 
   resources :users
+    collection do
+      get :active
+    end
   resources :sites do
     collection do
       get :recent

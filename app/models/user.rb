@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+
+  scope :active, -> { order("site_windows_count DESC")}
 end

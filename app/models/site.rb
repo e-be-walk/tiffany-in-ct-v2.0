@@ -8,6 +8,6 @@ class Site < ApplicationRecord
   validates :name, presence: true
 
   scope :recent, ->{ order("created_at DESC") }
-  scope :active, ->{ where("site_windows_count >= ?", 1)}
+  scope :active, ->{ order("site_windows_count DESC")}
 
 end
