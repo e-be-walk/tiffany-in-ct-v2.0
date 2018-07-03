@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
         u.password = params[:code][0..71]
       end
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       @user = User.new
       redirect_to new_user_url
