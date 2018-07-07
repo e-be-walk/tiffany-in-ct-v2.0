@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   get '/sites' => 'sites#index'
   root 'welcome#about'
 
-  resources :users
+  resources :users do
     collection do
       get :active
     end
+  end
   resources :sites do
     collection do
       get :recent
