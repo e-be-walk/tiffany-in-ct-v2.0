@@ -1,5 +1,4 @@
 class UserCommentsController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :destroy]
 
   def new
     @site = Site.find(params[:site_id])
@@ -14,29 +13,9 @@ class UserCommentsController < ApplicationController
       @user_comment.save
       @site.user_comments << @user_comment
       redirect_to site_path(@site)
-    #else
-    #@site = Site.find_by(params[:site_id])
-    #@user_comment = UserComment.new(user_comment_params)
-    #if @user_comment.valid?
-    #  @user_comment.save
-    #  redirect_to site_path(@site)
     else
       flash[:message] = "Please enter a comment."
       redirect_to new_site_user_comment_path
-    end
-  end
-
-  def edit
-    @user_comment = UserComment.find(params[:id])
-  end
-
-  def update
-    @user_comment = UserComment.find(params[:id])
-    @user_comment.update(user_comment_params)
-    if @user_comment.save
-      redirect_to site_path(@site)
-    else
-      render :edit
     end
   end
 

@@ -28,6 +28,15 @@
     <% end %>
   </div>
 
+  <div class="row">
+    <% @site.user_comments.each do |comment| %>
+    <div class="col-md-3">
+    <h3><%= "#{comment.comment_text}" %></h3>
+    <p><%= link_to "Delete this comment", site_user_comment_path(@site, comment), :confirm => "Are you sure?", :method => :delete %></p>
+    </div>
+    <% end %>
+  </div>
+
 
 <div class="link-container">
   <% if current_user.sites.include?(@site) %>
