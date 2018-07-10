@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_21_025842) do
+ActiveRecord::Schema.define(version: 2018_07_10_020021) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "comment_text"
+    t.integer "user_id"
+    t.integer "site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sites", force: :cascade do |t|
     t.integer "user_id"
@@ -28,6 +36,13 @@ ActiveRecord::Schema.define(version: 2018_06_21_025842) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "site_windows_count", default: 0
+  end
+
+  create_table "user_comments", force: :cascade do |t|
+    t.string "comment_text"
+    t.integer "user_id"
+    t.integer "site_id"
+    t.integer "window_id"
   end
 
   create_table "users", force: :cascade do |t|
