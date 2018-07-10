@@ -2,12 +2,12 @@ class UserCommentsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy]
 
   def new
-    @site = Site.find_by(params[:id])
+    @site = Site.find(params[:site_id])
     @user_comments = UserComment.new
   end
 
   def create
-    @user = current_user
+    #@user = current_user
     @site = Site.find(params[:site_id])
     @user_comment = UserComment.create(user_comment_params)
     if @user_comment.valid?
