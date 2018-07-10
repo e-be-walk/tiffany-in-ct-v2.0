@@ -1,6 +1,7 @@
 class UserComment < ApplicationRecord
-  belongs_to :user
-  belongs_to :window
-  belongs_to :site
+  belongs_to :user, optional: true
+  belongs_to :site, optional: true
+
+  validates :comment_text, presence: true
 
 end

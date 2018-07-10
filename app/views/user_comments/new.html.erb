@@ -1,0 +1,21 @@
+<div class="error">
+  <% if flash[:message] %>
+  <h1><%= flash[:message] %></h1>
+  <% end %>
+</div>
+
+<div class='site_container'>
+  <div class='form'>
+
+<h1>Create a new comment about this site: </h1>
+
+  <%= form_for [@site, @user_comments], html: { multipart: true } do |f| %>
+
+
+  <p><%= f.label :comment_text %>
+  <%= f.text_area :comment_text %></p>
+
+  <%= f.hidden_field :site_id, :value => @site.id %>
+  <p><%= f.submit "Submit Your Site Info" %></p>
+<% end %>
+</div>

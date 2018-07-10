@@ -2,8 +2,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :sites
   has_many :windows, through: :sites
-  #has_many :user_comments
-  #has_many :sites, through: :user_comments
+  has_many :user_comments
+  #has_many :sites, through: :user_comments, optional: true
   #has_many :windows, through: :user_comments
 
   validates :name, presence: true

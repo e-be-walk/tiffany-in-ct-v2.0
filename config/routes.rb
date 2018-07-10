@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get :active
     end
     resources :windows
+    resources :user_comments
   end
 
 
