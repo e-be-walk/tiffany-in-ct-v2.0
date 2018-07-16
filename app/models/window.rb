@@ -1,6 +1,6 @@
 class Window < ApplicationRecord
   belongs_to :site, counter_cache: :site_windows_count
-  #has_many :users, through: :sites
+  belongs_to :user
   #has_many :user_comments
   #has_many :users, through: :user_comments
 

@@ -1,4 +1,5 @@
 class UserCommentsController < ApplicationController
+  #before_action :set_user, only: [:show, :edit, :destroy]
 
   def new
     @site = Site.find(params[:site_id])
