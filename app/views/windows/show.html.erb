@@ -11,20 +11,10 @@
   </div>
 </div>
 
-<h1>User Comments</h1>
-  <div class="row">
-    <% @window.user_comments.each do |comment| %>
-    <div class="col-md-3">
-    <h3><%= "#{comment.comment_text}" %></h3>
-    <p><%= link_to "Delete this comment", window_user_comment_path(@window, comment), :confirm => "Are you sure?", :method => :delete %></p>
-    </div>
-    <% end %>
-  </div>
 
 
   <% if current_user.sites.include?(@site) %>
     <div class="link-container">
-      <!-- <%= link_to "Add a comment to this site", new_window_user_comment_path(@window, @user_comment) %> -->
       <%= link_to "Return to the Site", site_path(@site) %><br>
       <%= link_to "Edit this window", edit_site_window_path(@site, @window) %><br>
       <%= link_to "Delete this window", site_window_path(@window), :confirm => "Are you sure?", :method => :delete %><br>
