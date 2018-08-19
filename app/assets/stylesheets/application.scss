@@ -13,8 +13,8 @@
 @import 'bootstrap';
 
 @font-face {
-  font-family: "ITC - Benguiat";
-  src: url(/assets/ITC - Benguiat) format("truetype");
+  font-family: "ITC-Benguiat";
+  src: font-url("ITC-Benguiat.ttf") unquote("format('opentype')");
 }
 
 body {
@@ -36,7 +36,7 @@ h1,
 h2,
 h3 {
   font-weight: 800;
-  font-family: "ITC - Benguiat";
+  font-family: "ITC-Benguiat";
   margin: 20px;
 }
 
