@@ -12,6 +12,11 @@
  */
 @import 'bootstrap';
 
+@font-face {
+  font-family: "ITC - Benguiat";
+  src: url(/assets/ITC - Benguiat) format("truetype");
+}
+
 body {
   font-size: 20px;
   color: #212529;
@@ -31,7 +36,7 @@ h1,
 h2,
 h3 {
   font-weight: 800;
-  font-family: 'Corben', cursive;
+  font-family: "ITC - Benguiat";
   margin: 20px;
 }
 
@@ -205,8 +210,8 @@ header.masthead .overlay {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #212529;
-  opacity: 0.2;
+  /*background-color: #212529;
+  opacity: 0.1;*/
 }
 
 header.masthead .page-heading,
