@@ -17,10 +17,15 @@
   src: font-url("ITC-Benguiat.ttf") unquote("format('opentype')");
 }
 
+@font-face {
+  font-family: "FrutigerLTStd-Light";
+  src: font-url("FrutigerLTStd-Light.otf") unquote("format('opentype')");
+}
+
 body {
   font-size: 20px;
   color: #212529;
-  font-family: 'EB Garamond', serif;
+  font-family: "FrutigerLTStd-Light";
 }
 
 p {
@@ -38,10 +43,11 @@ h3 {
   font-weight: 800;
   font-family: "ITC-Benguiat";
   margin: 20px;
+  color: #f6c48b;
 }
 
 h4 {
-  font-family: 'Corben', cursive;
+  font-family: "ITC-Benguiat";
 }
 
 a {
@@ -103,12 +109,12 @@ img::-moz-selection {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
   background-color: white;
-  font-family: 'Corben', cursive;
+  font-family: "ITC-Benguiat";
 }
 
 #mainNav .navbar-brand {
   font-weight: 800;
-  color: #343a40;
+  color: #f6c48b;
 }
 
 #mainNav .navbar-toggler {
@@ -218,7 +224,7 @@ header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
   padding: 200px 0 150px;
-  color: white;
+  color: #f6c48b;
 }
 
 @media only screen and (min-width: 768px) {
@@ -247,7 +253,7 @@ header.masthead .site-heading .subheading {
   line-height: 1.1;
   display: block;
   margin: 10px 0 0;
-  font-family: 'Corben', cursive;
+  font-family: "ITC-Benguiat";
 }
 
 @media only screen and (min-width: 768px) {
