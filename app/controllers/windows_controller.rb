@@ -22,9 +22,10 @@ class WindowsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    #@user = current_user
     @site = Site.find(params[:site_id])
     @window = Window.create(window_params)
+    #raise params.inspect
     if @window.valid?
       @window.save
       @site.windows << @window
