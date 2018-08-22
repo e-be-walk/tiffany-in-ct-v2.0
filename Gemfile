@@ -39,6 +39,8 @@ gem 'paperclip', '~> 5.1'
 
  gem 'carrierwave', '~>1.0'
 
+ gem 'active_model_serializers', '~> 0.10.0'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

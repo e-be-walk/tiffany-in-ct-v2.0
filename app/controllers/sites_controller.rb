@@ -15,6 +15,10 @@ class SitesController < ApplicationController
 
   def index
     @sites = Site.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @sites}
+    end 
   end
 
   def create
