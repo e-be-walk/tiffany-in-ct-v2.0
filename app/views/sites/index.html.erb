@@ -4,10 +4,12 @@
 
 <h1>Site Entries:</h1>
 <div class="row">
-  <% @sites.each do |site| %>
-    <div class="col-md-3">
-    <%= image_tag site.image.url(:medium) %><br>
-    <h4><%= link_to site.name, site_path(site) %><h4>
-    </div>
-<% end %>
+    <% @sites.each do |site| %>
+      <div class="col-md-3">
+        <div class="all_sites">
+      <%= image_tag site.image.url(:medium) %><br>
+      <h4><%= link_to "#{site.name}", site_path(site) %><h4>
+        </div>
+      </div>
+    <% end %>
 </div>

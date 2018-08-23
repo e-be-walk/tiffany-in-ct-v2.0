@@ -1,12 +1,20 @@
 class SitesController < ApplicationController
   before_action :current_user
   before_action :validate_user_info
+  before_action :set_site, only: [:show, :edit, :update, :destroy, :next]
   skip_before_action :validate_user_info, only: [:show]
   skip_before_action :current_user, only: [:show]
 
   def show
-    #@user = current_user
-    @site = Site.find(params[:id])
+    #@site = Site.find(params[:id])
+    respond_to do |f|
+      f.html
+      f.json {render json: @site}
+    end
+  end
+
+  def api_show
+    render json: @site
   end
 
   def new
@@ -18,7 +26,7 @@ class SitesController < ApplicationController
     respond_to do |f|
       f.html
       f.json {render json: @sites}
-    end 
+    end
   end
 
   def create
@@ -65,6 +73,10 @@ class SitesController < ApplicationController
 
 
   private
+
+  def set_site
+    @site = Site.find_by_id(params[:id])
+  end
 
   def site_params
     params.require(:site).permit(

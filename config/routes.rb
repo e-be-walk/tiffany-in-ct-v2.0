@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/index' => 'welcome#index'
   get '/windows' => 'windows#index'
   get '/sites' => 'sites#index'
+  get 'api/sites/:id', to: 'sites#api_show'
   root 'welcome#about'
 
   resources :users do
