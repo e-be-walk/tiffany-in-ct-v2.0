@@ -32,8 +32,11 @@ function bindClickHandlers() {
     })
   })
 
-//  $(document).on('click', 'next-site')
-}
+//  $(document).on('click', 'next-site', function() {
+//    let id = $(this).attr('data-id')
+//    fetch(`posts/${id}/next`)
+//  })
+//}
 
   const getSites = () => {
     fetch(`/sites.json`)
@@ -42,7 +45,7 @@ function bindClickHandlers() {
       $('#app-container').html('')
       sites.forEach(site => {
         let newSite = new Site(site)
-        console.log('WTF')
+        //console.log('WTF')
         //debugger shows that site info follows through til here but the siteHtml
         //which is supposed to be rendered by the formatIndex is undefined.
         let siteHtml = newSite.formatIndex()
@@ -51,20 +54,16 @@ function bindClickHandlers() {
     })
 }
 
-class Site{
-  constructor(site){
+function Site(site){
   this.id = site.id
   this.name = site.name
   this.street_address = site.street_address
   this.city = site.city
-  debugger
-  }
 }
 
-Site.protoype.formatIndex = function(){
-  let siteHtml = `#{this.id}`
-  //`
-  //  <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
-  //`
+Site.prototype.formatIndex = function(){
+  let siteHtml = `
+  <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+  `
   return siteHtml
 }
