@@ -36,9 +36,9 @@ function bindClickHandlers() {
 //    let id = $(this).attr('data-id')
 //    fetch(`posts/${id}/next`)
 //  })
-//}
+}
 
-  const getSites = () => {
+  const showSites = () => {
     fetch(`/sites.json`)
     .then(res => res.json())
     .then(sites => {
