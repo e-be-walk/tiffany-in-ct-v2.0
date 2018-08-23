@@ -1,9 +1,9 @@
-$(() => {
-  bindClickHandlers()
-})
+console.log('Hello')
+//$(function() {
+//  bindClickHandlers()
+//})
 
 const bindClickHandlers = () => {
-  console.log('Hello')
   $('.all_sites').on('click', e => {
     e.preventDefault()
     history.pushState(null, null, "sites")
@@ -24,7 +24,7 @@ const bindClickHandlers = () => {
   })
 
   //$(document).on('click', 'next-post')
-
+}
 
   const getSites = () => {
     fetch(`/sites.json`)
@@ -46,11 +46,11 @@ function Site(site) {
   this.city = site.city
 }
 
-Site.protoype.formatIndex = function(){
-  let siteHtml = `
-    <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
-    <h2>${this.street_address}</h2>
-    <h2>${this.city}</h2>
-  `
-  return siteHtml
-}
+//Site.protoype.formatIndex = function() {
+//  let siteHtml = `
+//    <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+//    <h2>${this.street_address}</h2>
+//    <h2>${this.city}</h2>
+//  `
+//  return siteHtml
+//}
