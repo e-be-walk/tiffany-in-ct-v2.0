@@ -1,8 +1,10 @@
 <h1>Filter by:</h1>
-<h3><%= link_to('Sites', '/sites') %></h3>
+<div class="all_sites">
+  <h3><%= link_to('Sites', '/sites') %></h3>
+</div>
 <h3><%= link_to('Windows', '/windows') %></h3>
 <h1>Or Browse:</h1>
-<h2>Site Entries:</h2>
+<!--<h2>Site Entries:</h2>
 <div class="row">
   <% @sites.each do |site| %>
     <div class="col-md-3">
@@ -10,7 +12,7 @@
     <h4><%= link_to site.name, site_path(site) %></h4>
     </div>
 <% end %>
-</div>
+</div>-->
 
 <h2>Window Entries:</h2>
 <div class="row">
