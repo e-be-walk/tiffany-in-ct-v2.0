@@ -32,9 +32,23 @@ function bindClickHandlers() {
     })
   })
 
-  $(document).on('click', ".next-site", function() {
+  //Button is not working correctly right now- console is returning an error
+  //due to lack of a window serializer- maybe this would be worth coming back to
+  //after implementing window serializer to display your has_many relationship.
+  //screen shot of error on 8/24 @9:12
+  $(document).on('click', '.next-site', function() {
+    console.log($(this).attr('data-id'))
     let id = $(this).attr('data-id')
-    fetch(`sites/${id}/next`)
+    let nextId = id++
+    //this returns N a N
+    console.log(nextId)
+    fetch(`sites/${nextId}`)
+    //  .then(res => res.json())
+    //  .then(sites => {
+    //    let nextSite = new Site(site)
+    //    let siteHtml = nextSite.formatShow()
+    //    $('#app-container').append(siteHtml)
+    //  })
   })
 }
 
@@ -45,7 +59,7 @@ function bindClickHandlers() {
       $('#app-container').html('')
       sites.forEach(site => {
         let newSite = new Site(site)
-        console.log('WTF')
+        //console.log('WTF')
         //debugger shows that site info follows through til here but the siteHtml
         //which is supposed to be rendered by the formatIndex is undefined.
         let siteHtml = newSite.formatIndex()
@@ -73,7 +87,7 @@ Site.prototype.formatShow = function(){
     <h1>${this.name}</h1>
     <h3>${this.street_address}</h3>
     <h3>${this.city}</h3>
-    <button class="next-site">Next Site</button>
+    <button class="next-site" data-id="${this.id}">Next Site</button>
   `
   return siteHtml
 }

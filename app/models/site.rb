@@ -11,4 +11,13 @@ class Site < ApplicationRecord
   scope :recent, ->{ order("created_at DESC") }
   scope :active, ->{ order("site_windows_count DESC")}
 
+  def next
+    site = Site.where("id > ?", id).first
+    
+    if site
+      site
+    else
+      Site.first
+    end
+  end
 end
