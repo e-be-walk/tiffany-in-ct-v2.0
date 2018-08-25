@@ -39,10 +39,10 @@ function bindClickHandlers() {
   $(document).on('click', '.next-site', function() {
     console.log($(this).attr('data-id'))
     let id = $(this).attr('data-id')
-    let nextId = id++
+    //let nextId = id++
     //this returns N a N
-    console.log(nextId)
-    fetch(`sites/${nextId}`)
+    //console.log(nextId)
+    fetch(`sites/${id}/next`)
     //  .then(res => res.json())
     //  .then(sites => {
     //    let nextSite = new Site(site)
