@@ -19,7 +19,6 @@ class SitesController < ApplicationController
 
   def next
     @next_site = @site.next
-    #render json: @next_site
     respond_to do |f|
       f.html
       f.json {render json: @next_site}
