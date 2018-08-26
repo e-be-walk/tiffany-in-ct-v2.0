@@ -9,6 +9,11 @@ class WindowsController < ApplicationController
 
   def index
     @windows = Window.all
+    #render json: @windows
+    respond_to do |f|
+      f.html
+      f.json {render json: @windows}
+    end
   end
 
   def new

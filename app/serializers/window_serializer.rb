@@ -1,5 +1,5 @@
 class WindowSerializer < ActiveModel::Serializer
-  attributes :id, :image, :name, :year_created, :dedication
+  attributes :id, :image, :site_id, :name, :year_created, :dedication
 
-  belongs to :site   
+  belongs_to :site
 end
