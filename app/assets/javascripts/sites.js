@@ -67,6 +67,7 @@ function Site(site){
 
 Site.prototype.formatIndex = function(){
   let siteHtml = `
+  
   <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
   `
   return siteHtml

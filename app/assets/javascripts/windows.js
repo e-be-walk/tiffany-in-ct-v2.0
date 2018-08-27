@@ -38,7 +38,7 @@ function Window(windows) {
 
 Window.prototype.formatIndex = function(){
   let windowHtml = `
-    ${this.image}
+    <img src="${this.image}">
     <a href="/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
   `
   return windowHtml
