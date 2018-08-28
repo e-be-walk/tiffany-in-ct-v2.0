@@ -10,6 +10,22 @@ function windowClickHandlers() {
     getWindows()
   })
 
+  $(document).on('click', ".showWindows", function(e) {
+    e.preventDefault()
+    $('#app-container').html('')
+    console.log($(this).attr('data-id'))
+    let id = $(this).attr('data-id')
+    fetch(`/sites/${id}.json`)
+    .then(res => res.json())
+    .then(windows => {
+      $('#app-container').html('')
+      windows.forEach(windows => {
+        let newWindow = new Window(windows)
+        let windowHtml = newWindow.formatWindows()
+        $('#app-container').append(windowHtml)
+    })
+  })
+})
 }
 
   const getWindows = () => {
@@ -25,7 +41,6 @@ function windowClickHandlers() {
       })
     })
   }
-
 
 function Window(windows) {
   this.id = windows.id
@@ -43,6 +58,17 @@ Window.prototype.formatIndex = function(){
       <div class="card h-100">
         <a href="sites/${this.site_id}/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
       </div>
+    </div>
+  `
+  return windowHtml
+}
+
+Window.prototype.formatWindows = function(){
+  let windowHtml = `
+    <div class="col-lg-4 col-sm-6 portfolio-item">
+      <img class="card-img-top" src="${this.image}">
+      <div class="card h-100">
+       <h1>${this.name}</h1>
     </div>
   `
   return windowHtml

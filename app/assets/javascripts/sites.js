@@ -87,7 +87,7 @@ Site.prototype.formatShow = function(){
     <h3>${this.street_address}</h3>
     <h3>${this.city}</h3>
     <br></br>
-    <a href="/sites/${this.id}/windows" class="all_windows"><h1>Show Windows</h1></a>
+    <a href="/sites/${this.id}" data-id="${this.id}" class="showWindows"><h1>Show Windows</h1></a>
     <button class="next-site" data-id="${this.id}">Next Site</button>
   `
   return siteHtml
