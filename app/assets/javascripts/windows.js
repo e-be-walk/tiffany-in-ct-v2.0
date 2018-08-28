@@ -38,10 +38,14 @@ function Window(windows) {
 
 Window.prototype.formatIndex = function(){
   let windowHtml = `
-    <div class="col-md-3">
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 portfolio-item">
       <img class="card-img-top" src="${this.image}">
-      <a href="sites/${this.site_id}/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+      <div class="card h-100">
+        <a href="sites/${this.site_id}/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+      </div>
     </div>
+  </div>
   `
   return windowHtml
 }
