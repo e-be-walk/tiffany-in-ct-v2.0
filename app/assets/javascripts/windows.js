@@ -1,12 +1,12 @@
 $(() => {
-  bindClickHandlers()
+  windowClickHandlers()
 })
 
-function bindClickHandlers() {
+function windowClickHandlers() {
   $('.all_windows').on('click', e => {
     e.preventDefault()
     //debugger
-    history.pushState(null, null, "windows")
+    history.pushState(null, null, null, "windows")
     getWindows()
   })
 
@@ -38,8 +38,10 @@ function Window(windows) {
 
 Window.prototype.formatIndex = function(){
   let windowHtml = `
-    <img src="${this.image}">
-    <a href="/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+    <div class="col-md-3">
+      <img class="card-img-top" src="${this.image}">
+      <a href="sites/${this.site_id}/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+    </div>
   `
   return windowHtml
 }

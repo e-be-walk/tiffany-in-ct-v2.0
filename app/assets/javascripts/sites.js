@@ -60,6 +60,7 @@ function bindClickHandlers() {
 
 function Site(site){
   this.id = site.id
+  this.image = site.image
   this.name = site.name
   this.street_address = site.street_address
   this.city = site.city
@@ -67,7 +68,7 @@ function Site(site){
 
 Site.prototype.formatIndex = function(){
   let siteHtml = `
-  
+  <img class="card-img-top" src="${this.image}">
   <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
   `
   return siteHtml
