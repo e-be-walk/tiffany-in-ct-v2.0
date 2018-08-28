@@ -6,7 +6,7 @@ function windowClickHandlers() {
   $('.all_windows').on('click', e => {
     e.preventDefault()
     //debugger
-    history.pushState(null, null, null, "windows")
+    history.pushState(null, null, null, null, "windows")
     getWindows()
   })
 
@@ -17,7 +17,7 @@ function windowClickHandlers() {
     fetch(`/windows.json`)
     .then(res => res.json())
     .then(windows => {
-      $('#app-containter').html('')
+      $('#app-container').html('')
       windows.forEach(windows => {
         let newWindow = new Window(windows)
         let windowHtml = newWindow.formatIndex()
@@ -38,14 +38,12 @@ function Window(windows) {
 
 Window.prototype.formatIndex = function(){
   let windowHtml = `
-  <div class="row">
     <div class="col-lg-4 col-sm-6 portfolio-item">
       <img class="card-img-top" src="${this.image}">
       <div class="card h-100">
         <a href="sites/${this.site_id}/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
       </div>
     </div>
-  </div>
   `
   return windowHtml
 }

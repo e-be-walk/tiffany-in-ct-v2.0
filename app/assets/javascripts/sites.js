@@ -68,17 +68,26 @@ function Site(site){
 
 Site.prototype.formatIndex = function(){
   let siteHtml = `
+  <div class="col-lg-4 col-sm-6 portfolio-item">
   <img class="card-img-top" src="${this.image}">
+  <div class="card h-100">
   <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+  </div>
+  </div>
   `
   return siteHtml
 }
 
+//using the link within this you should be able to format a fetch function which retrieves
+//the windows associated with the site similiar to the show_link function above, appending the
+//windows to the site.
 Site.prototype.formatShow = function(){
   let siteHtml = `
     <h1>${this.name}</h1>
     <h3>${this.street_address}</h3>
     <h3>${this.city}</h3>
+    <br></br>
+    <a href="/sites/${this.id}/windows" class="all_windows"><h1>Show Windows</h1></a>
     <button class="next-site" data-id="${this.id}">Next Site</button>
   `
   return siteHtml
