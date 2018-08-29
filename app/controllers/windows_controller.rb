@@ -1,10 +1,15 @@
 class WindowsController < ApplicationController
   before_action :validate_user_info
+  before_action :set_site
   skip_before_action :validate_user_info, only: [:show]
 
   def show
     @site = Site.find(params[:site_id])
     @window = Window.find(params[:id])
+    respond_to do |f|
+      f.html
+      f.json {render json: @window}
+    end
   end
 
   def index
@@ -68,5 +73,9 @@ class WindowsController < ApplicationController
       :window_info,
       :image
     )
+  end
+
+  def set_site
+    @site = Site.find(params[:site_id])
   end
 end

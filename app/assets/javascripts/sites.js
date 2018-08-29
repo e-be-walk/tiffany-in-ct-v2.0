@@ -2,13 +2,6 @@ $(() => {
   bindClickHandlers()
 })
 
-//function attachListeners(){
-//  $("#all_sites").click(bindClickHandlers)
-//}
-
-//$(function(){
-//  attachListeners()
-//})
 
 function bindClickHandlers() {
   $('.all_sites').on('click', e => {
@@ -58,6 +51,13 @@ function bindClickHandlers() {
     })
 }
 
+$(function(){
+ $("a.showWindows").on("click", function(e){
+   alert("You clicked this link")
+   e.preventDefault();
+  })
+ })
+
 function Site(site){
   this.id = site.id
   this.image = site.image
@@ -87,7 +87,9 @@ Site.prototype.formatShow = function(){
     <h3>${this.street_address}</h3>
     <h3>${this.city}</h3>
     <br></br>
+    <div class="siteWindows">
     <a href="/sites/${this.id}" data-id="${this.id}" class="showWindows"><h1>Show Windows</h1></a>
+    </div>
     <button class="next-site" data-id="${this.id}">Next Site</button>
   `
   return siteHtml
