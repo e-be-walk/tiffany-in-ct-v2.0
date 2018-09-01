@@ -6,10 +6,10 @@ class SitesController < ApplicationController
   skip_before_action :current_user, only: [:show]
 
   def show
-    #@site = Site.find(params[:id])
-    respond_to do |f|
-      f.html
-      f.json {render json: @site}
+    @site = Site.find(params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @site}
     end
   end
 

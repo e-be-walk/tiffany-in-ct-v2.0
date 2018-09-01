@@ -4,7 +4,7 @@ class WindowsController < ApplicationController
   skip_before_action :validate_user_info, only: [:show]
 
   def show
-    @site = Site.find(params[:site_id])
+    #@site = Site.find(params[:site_id])
     @window = Window.find(params[:id])
     respond_to do |f|
       f.html

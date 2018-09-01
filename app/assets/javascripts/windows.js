@@ -24,12 +24,19 @@ function windowClickHandlers() {
     })
   })
 
-  $(document).on('click', ".showWindows", function(e) {
+  $(document).on('click', '#show-windows-js', function(e) {
       e.preventDefault()
       console.log($(this).attr('data-id'))
       let id = $(this).attr('data-id')
-      fetch(`/sites/${id}.json`)
-      .then(res => res.json())
+      $.get(`/sites/${id}.json`, function(response){
+        $('#app-container').html('')
+        debugger
+          let newWindow = new Window(windows)
+          let windowHtml = new Window.formatIndex()
+          $('#siteWindows').append(windowHtml)
+      })
+      //fetch(`/sites/${id}.json`)
+      //.then(res => res.json())
       //.then(windows => {
       //  $('#app-container').html('')
       //    let newWindow = new Window(windows)
