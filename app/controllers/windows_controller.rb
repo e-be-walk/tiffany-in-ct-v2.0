@@ -1,6 +1,6 @@
 class WindowsController < ApplicationController
   before_action :validate_user_info
-  before_action :set_site
+  before_action :set_site, only: [:show]
   skip_before_action :validate_user_info, only: [:show]
 
   def show

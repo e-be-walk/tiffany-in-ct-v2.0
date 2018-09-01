@@ -78,9 +78,6 @@ Site.prototype.formatIndex = function(){
   return siteHtml
 }
 
-//using the link within this you should be able to format a fetch function which retrieves
-//the windows associated with the site similiar to the show_link function above, appending the
-//windows to the site.
 Site.prototype.formatShow = function(){
   let siteHtml = `
     <h1>${this.name}</h1>
