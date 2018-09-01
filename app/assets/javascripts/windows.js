@@ -31,9 +31,11 @@ function windowClickHandlers() {
       $.get(`/sites/${id}.json`, function(response){
         $('#app-container').html('')
         debugger
+        response.windows.forEach(windows => {
           let newWindow = new Window(windows)
-          let windowHtml = new Window.formatIndex()
-          $('#siteWindows').append(windowHtml)
+          let windowHtml = newWindow.formatIndex()
+          $('#app-container').append(windowHtml)
+        })
       })
       //fetch(`/sites/${id}.json`)
       //.then(res => res.json())
