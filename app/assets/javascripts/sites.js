@@ -87,13 +87,12 @@ Site.prototype.formatShow = function(){
     <h1>Add a New Window:</h1>
       <form class="new_window" id="new_window" action="/sites/${this.id}/windows" accept-charset="UTF-8" enctype="multipart/form-data" method="post">
       <input name="utf8" type="hidden">
-      <input type="hidden" data-id="${this.id}">
       <input type="hidden" name="authenticity_token" value="${AUTH_TOKEN}">
       <h3>Name: </h3>
       <input type="text" name="window[name]" id="window_name">
       <h3>Image: </h3>
       <input type="file" name="window[image]" id="window_image">
-      <input value="${this.id}" type="hidden" name="window[site_id]" id="window_site_id">
+      <input value="${this.id}" data-id="${this.site_id}" type="hidden" name="window[site_id]" id="window_site_id">
       <br>
       <input type="submit" name="commit" value="Submit" data-disable-with="Post">
       </form>

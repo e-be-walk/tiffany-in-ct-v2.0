@@ -25,18 +25,14 @@ function windowClickHandlers() {
       })
     })
 
-    $(document).on('click', '#newWindow', function(e) {
+    $(document).on('submit', '#newWindow', function(e) {
         e.preventDefault()
         console.log($(this).attr('data-id'))
         let id = $(this).attr('data-id')
-        $.get(`/sites/${id}.json`, function(response){
-          $('#siteWindows').html('')
-          //debugger
-          response.windows.forEach(windows => {
-            let newWindow = new Window(windows)
-            let windowHtml = newWindow.formatIndex()
-            $('#app-container').append(windowHtml)
-          })
+        $.post(`/sites/${id}.json`, function(response){
+          let newWindow = new Window(data)
+          let windowHtml = newWindow.formatIndex()
+          $('#app-container').append(windowHtml)
         })
       })
 
