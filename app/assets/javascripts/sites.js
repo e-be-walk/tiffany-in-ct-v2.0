@@ -63,7 +63,7 @@ function Site(site){
 
 Site.prototype.formatIndex = function(){
   let siteHtml = `
-  <div class="col-lg-4 col-sm-6 portfolio-item">
+  <div class="col-md-3">
   <img class="card-img-top" src="${this.image}">
   <div class="card h-100">
   <a href="/sites/${this.id}" data-id="${this.id}" id="show_link" class="show_link"><h1>${this.name}</h1></a>
