@@ -51,6 +51,14 @@ function Window(windows) {
   this.dedication = windows.dedication
 }
 
+function newWindow(e){
+  e.preventDefault()
+  const path = this.action
+  $.post(path, $(this).serialize(), function(data){
+    showWindows(path)
+  })
+}
+
 Window.prototype.formatIndex = function(){
   let windowHtml = `
     <div class="col-lg-4 col-sm-6 portfolio-item">
