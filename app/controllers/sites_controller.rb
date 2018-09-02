@@ -13,15 +13,19 @@ class SitesController < ApplicationController
     end
   end
 
-  def api_show
-    render json: @site
-  end
-
   def next
     @next_site = @site.next
     respond_to do |f|
       f.html
       f.json {render json: @next_site}
+    end
+  end
+
+  def previous
+    @previous_site = @site.previous
+    respond_to do |f|
+      f.html
+      f.json {render json: @previous_site}
     end
   end
 

@@ -28,7 +28,7 @@ function bindClickHandlers() {
   $(document).on('click', '.next-site', function() {
     console.log($(this).attr('data-id'))
     let id = $(this).attr('data-id')
-    fetch(`/sites/${id}.json`)
+    fetch(`/sites/${id}/next.json`)
     .then(res => res.json())
     .then(site => {
       $('#app-container').html('')
@@ -82,8 +82,8 @@ Site.prototype.formatShow = function(){
     <div id="siteWindows">
     <a href="/sites/${this.id}" data-id="${this.id}" id="show-windows-js" class="showWindows"><h1>Show Windows</h1></a>
     </div>
-    <button class="next-site" data-id="${this.id-1}">Previous Site</button>
-    <button class="next-site" data-id="${this.id+1}">Next Site</button>
+    <button id="show_link" data-id="${this.id-1}">Previous Site</button>
+    <button class="next-site" data-id="${this.id}">Next Site</button>
   `
   return siteHtml
 }
