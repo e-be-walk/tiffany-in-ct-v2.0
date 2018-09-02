@@ -82,6 +82,7 @@ Site.prototype.formatShow = function(){
     <div id="siteWindows">
     <a href="/sites/${this.id}" data-id="${this.id}" id="show-windows-js" class="showWindows"><h1>Show Windows</h1></a>
     </div>
+    <button class="next-site" data-id="${this.id-1}">Previous Site</button>
     <button class="next-site" data-id="${this.id+1}">Next Site</button>
   `
   return siteHtml
