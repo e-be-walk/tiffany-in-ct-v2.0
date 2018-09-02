@@ -80,15 +80,14 @@ Site.prototype.formatShow = function(){
     <h3>${this.street_address}</h3>
     <h3>${this.city}</h3>
     <br></br>
-    <div id="userComments">
-    <a href="/sites/${this.id}" data-id="${this.id}" id="show-comments-js" class="showComments"><h1>Show Comments</h1></a>
-    </div>
-    <br></br>
     <div id="siteWindows">
     <a href="/sites/${this.id}" data-id="${this.id}" id="show-windows-js" class="showWindows"><h1>Show Windows</h1></a>
+    </div>
+    <div id="newWindow">
     <h1>Add a New Window:</h1>
       <form class="new_window" id="new_window" action="/sites/${this.id}/windows" accept-charset="UTF-8" enctype="multipart/form-data" method="post">
       <input name="utf8" type="hidden">
+      <input type="hidden" data-id="${this.id}">
       <input type="hidden" name="authenticity_token" value="${AUTH_TOKEN}">
       <h3>Name: </h3>
       <input type="text" name="window[name]" id="window_name">
@@ -96,7 +95,7 @@ Site.prototype.formatShow = function(){
       <input type="file" name="window[image]" id="window_image">
       <input value="${this.id}" type="hidden" name="window[site_id]" id="window_site_id">
       <br>
-      <input type="submit" name="commit" value="Post" data-disable-with="Post">
+      <input type="submit" name="commit" value="Submit" data-disable-with="Post">
       </form>
     </div>
     <button id="show_link" data-id="${this.id-1}">Previous Site</button>
