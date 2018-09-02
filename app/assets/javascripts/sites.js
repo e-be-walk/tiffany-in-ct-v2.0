@@ -11,7 +11,7 @@ function bindClickHandlers() {
     getSites()
   })
 
-  $(document).on('click', ".show_link", function(e) {
+  $(document).on('click', '#show_link', function(e) {
     e.preventDefault()
     $('#app-container').html('')
     //console.log($(this).attr('data-id'))
@@ -28,15 +28,15 @@ function bindClickHandlers() {
   $(document).on('click', '.next-site', function() {
     console.log($(this).attr('data-id'))
     let id = $(this).attr('data-id')
-    fetch(`/sites/${id}/next.json`)
+    fetch(`/sites/${id}.json`)
     .then(res => res.json())
     .then(site => {
+      $('#app-container').html('')
       let newSite = new Site(site)
       let siteHtml = newSite.formatShow()
       $('#app-container').append(siteHtml)
     })
   })
-}
 
   const getSites = () => {
     fetch(`/sites.json`)
@@ -49,14 +49,9 @@ function bindClickHandlers() {
         $('#app-container').append(siteHtml)
       })
     })
+  }
 }
 
-$(function(){
- $("a.showWindows").on("click", function(e){
-   alert("You clicked this link")
-   e.preventDefault();
-  })
- })
 
 function Site(site){
   this.id = site.id
@@ -71,7 +66,7 @@ Site.prototype.formatIndex = function(){
   <div class="col-lg-4 col-sm-6 portfolio-item">
   <img class="card-img-top" src="${this.image}">
   <div class="card h-100">
-  <a href="/sites/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+  <a href="/sites/${this.id}" data-id="${this.id}" id="show_link" class="show_link"><h1>${this.name}</h1></a>
   </div>
   </div>
   `
@@ -87,7 +82,7 @@ Site.prototype.formatShow = function(){
     <div id="siteWindows">
     <a href="/sites/${this.id}" data-id="${this.id}" id="show-windows-js" class="showWindows"><h1>Show Windows</h1></a>
     </div>
-    <button class="next-site" data-id="${this.id}">Next Site</button>
+    <button class="next-site" data-id="${this.id+1}">Next Site</button>
   `
   return siteHtml
 }

@@ -15,8 +15,8 @@ function windowClickHandlers() {
       console.log($(this).attr('data-id'))
       let id = $(this).attr('data-id')
       $.get(`/sites/${id}.json`, function(response){
-        //$('#app-container').html('')
-        debugger
+        $('#siteWindows').html('')
+        //debugger
         response.windows.forEach(windows => {
           let newWindow = new Window(windows)
           let windowHtml = newWindow.formatIndex()
@@ -24,21 +24,23 @@ function windowClickHandlers() {
         })
       })
     })
+
+    const getWindows = () => {
+      fetch(`/windows.json`)
+      .then(res => res.json())
+      .then(windows => {
+        $('#app-container').html('')
+        windows.forEach(windows => {
+          let newWindow = new Window(windows)
+          let windowHtml = newWindow.formatIndex()
+          $('#app-container').append(windowHtml)
+        })
+      })
+    }
+
 }
 
 
-  const getWindows = () => {
-    fetch(`/windows.json`)
-    .then(res => res.json())
-    .then(windows => {
-      $('#app-container').html('')
-      windows.forEach(windows => {
-        let newWindow = new Window(windows)
-        let windowHtml = newWindow.formatIndex()
-        $('#app-container').append(windowHtml)
-      })
-    })
-  }
 
 function Window(windows) {
   this.id = windows.id
