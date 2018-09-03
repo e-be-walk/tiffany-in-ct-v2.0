@@ -25,6 +25,26 @@ function windowClickHandlers() {
       })
     })
 
+    $(document).on('submit', '#new_window', function(e) {
+        e.preventDefault()
+        console.log($(this).attr('data-id'))
+        let id = $(this).attr('data-id')
+        //this is where you are having issues- the site is serializing incorrectly and
+        //omitting the image from the db. In addition, the site container is not
+        //being wiped when you append the info below.
+        var values = $(this.windows).serialize();
+        var aWindow = $.post(`/sites/${id}/windows`, values)
+        console.log($(this.windows).serialize())
+        $.get(`/sites/${id}.json`, function(response){
+          $('#siteWindows').html('')
+          //debugger
+          response.windows.forEach(windows => {
+            let newWindow = new Window(windows)
+            let windowHtml = newWindow.formatIndex()
+            $('#app-container').append(windowHtml)
+          })
+        })
+      })
 
 
     const getWindows = () => {
@@ -53,13 +73,6 @@ function Window(windows) {
   this.dedication = windows.dedication
 }
 
-function newWindow(e){
-  e.preventDefault()
-  const path = this.action
-  $.post(path, $(this).serialize(), function(data){
-    showWindows(path)
-  })
-}
 
 Window.prototype.formatIndex = function(){
   let windowHtml = `

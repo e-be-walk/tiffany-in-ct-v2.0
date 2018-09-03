@@ -1,6 +1,6 @@
 class WindowsController < ApplicationController
   before_action :validate_user_info
-  before_action :set_site, only: [:show]
+  before_action :set_site, only: [:show, :create]
   skip_before_action :validate_user_info, only: [:show]
 
   def show
@@ -33,13 +33,13 @@ class WindowsController < ApplicationController
 
   def create
     #@user = current_user
-    @site = Site.find(params[:site_id])
+    #@site = Site.find(params[:site_id])
     @window = Window.create(window_params)
-    respond_to do |f|
-      f.html
-      f.json {render json: @site}
-    end
-    #render json: @site
+    #respond_to do |f|
+    #  f.html { render :show}
+    #  f.json {render json: @winodw, layout: false}
+    #end
+    render json: @window
     #raise params.inspect
     #if @window.valid?
     #  @window.save
