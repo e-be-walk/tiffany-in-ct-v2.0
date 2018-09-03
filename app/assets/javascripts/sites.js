@@ -86,7 +86,7 @@ Site.prototype.formatShow = function(){
     </div>
 
     <h1>Add a New Window:</h1>
-      <form class="new_window" id="new_window" data-id="${this.id}" action="/sites/${this.id}" accept-charset="UTF-8" enctype="multipart/form-data" method="post">
+      <form class="new_window" id="new_window" data-id="${this.id}" action="/sites/${this.id}/windows" accept-charset="UTF-8" enctype="multipart/form-data" method="post">
       <input name="utf8" type="hidden">
       <input type="hidden" name="authenticity_token" value="${AUTH_TOKEN}">
       <h3>Name: </h3>

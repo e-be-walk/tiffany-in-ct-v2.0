@@ -33,13 +33,13 @@ class WindowsController < ApplicationController
 
   def create
     #@user = current_user
-    #@site = Site.find(params[:site_id])
+    @site = Site.find(params[:site_id])
     @window = Window.create(window_params)
-    #respond_to do |f|
-    #  f.html { render :show}
-    #  f.json {render json: @winodw, layout: false}
-    #end
-    render json: @window
+    respond_to do |f|
+      f.html 
+      f.json {render json: @site}
+    end
+    #render json: @window
     #raise params.inspect
     #if @window.valid?
     #  @window.save
