@@ -33,17 +33,22 @@ class WindowsController < ApplicationController
 
   def create
     #@user = current_user
-    #@site = Site.find(params[:site_id])
+    @site = Site.find(params[:site_id])
     @window = Window.create(window_params)
-    #raise params.inspect
-    if @window.valid?
-      @window.save
-      @site.windows << @window
-      redirect_to site_window_path(@site, @window)
-    else
-      flash[:message] = "Please ensure that at the very least, your window has a name."
-      render :new
+    respond_to do |f|
+      f.html
+      f.json {render json: @site}
     end
+    #render json: @site
+    #raise params.inspect
+    #if @window.valid?
+    #  @window.save
+    #  @site.windows << @window
+    #  redirect_to site_window_path(@site, @window)
+    #else
+    #  flash[:message] = "Please ensure that at the very least, your window has a name."
+    #  render :new
+    #end
   end
 
   def update

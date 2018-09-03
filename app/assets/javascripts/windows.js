@@ -25,16 +25,7 @@ function windowClickHandlers() {
       })
     })
 
-    $(document).on('submit', '#newWindow', function(e) {
-        e.preventDefault()
-        console.log($(this).attr('data-id'))
-        let id = $(this).attr('data-id')
-        $.post(`/sites/${id}.json`, function(response){
-          let newWindow = new Window(data)
-          let windowHtml = newWindow.formatIndex()
-          $('#app-container').append(windowHtml)
-        })
-      })
+
 
     const getWindows = () => {
       fetch(`/windows.json`)

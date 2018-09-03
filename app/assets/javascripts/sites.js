@@ -11,6 +11,7 @@ function bindClickHandlers() {
     getSites()
   })
 
+
   $(document).on('click', '#show_link', function(e) {
     e.preventDefault()
     $('#app-container').html('')
@@ -83,7 +84,7 @@ Site.prototype.formatShow = function(){
     <div id="siteWindows">
     <a href="/sites/${this.id}" data-id="${this.id}" id="show-windows-js" class="showWindows"><h1>Show Windows</h1></a>
     </div>
-    <div id="newWindow">
+
     <h1>Add a New Window:</h1>
       <form class="new_window" id="new_window" action="/sites/${this.id}/windows" accept-charset="UTF-8" enctype="multipart/form-data" method="post">
       <input name="utf8" type="hidden">
@@ -92,11 +93,12 @@ Site.prototype.formatShow = function(){
       <input type="text" name="window[name]" id="window_name">
       <h3>Image: </h3>
       <input type="file" name="window[image]" id="window_image">
-      <input value="${this.id}" data-id="${this.site_id}" type="hidden" name="window[site_id]" id="window_site_id">
+      <div id="newWindow">
+      <input value="${this.id}" data-id="${this.id}" type="hidden" name="window[site_id]" id="window_site_id">
       <br>
-      <input type="submit" name="commit" value="Submit" data-disable-with="Post">
+      <input type="submit" name="commit" value="Post" data-disable-with="Post">
+      </div>
       </form>
-    </div>
     <button id="show_link" data-id="${this.id-1}">Previous Site</button>
     <button class="next-site" data-id="${this.id}">Next Site</button>
   `
