@@ -91,6 +91,10 @@ Site.prototype.formatShow = function(){
       <input type="hidden" name="authenticity_token" value="${AUTH_TOKEN}">
       <h3>Name: </h3>
       <input type="text" name="window[name]" id="window_name">
+      <h3>Year Created: </h3>
+      <input type="text" name="window[year_created]" id="window_year_created">
+      <h3>Dedication: </h3>
+      <input type="text" name="window[dedication]" id="window_dedication">
       <h3>Image: </h3>
       <input type="file" name="window[image]" id="window_image">
       <div id="newWindow">
