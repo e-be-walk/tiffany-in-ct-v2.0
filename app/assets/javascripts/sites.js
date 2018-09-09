@@ -95,8 +95,7 @@ Site.prototype.formatShow = function(){
       <input type="text" name="window[year_created]" id="window_year_created">
       <h3>Dedication: </h3>
       <input type="text" name="window[dedication]" id="window_dedication">
-      <h3>Image: </h3>
-      <input type="file" name="window[image]" id="window_image">
+  
       <div id="newWindow">
       <input value="${this.id}" data-id="${this.id}" type="hidden" name="window[site_id]" id="window_site_id">
       <br>

@@ -26,12 +26,13 @@ function windowClickHandlers() {
     })
 
     $(document).on('submit', '#new_window', function(e) {
-        //e.preventDefault()
+        e.preventDefault()
         console.log($(this).attr('data-id'))
-        let id = $(this).attr('data-id')
+        let id = $(this).attr('data-id');
         const values = $(this).serialize();
+        //debugger
         $.post(`/sites/${id}/windows.json`, values).done(function(resp){
-          debugger
+          //debugger
           let length = resp.windows.length
           let newWindow = resp.windows[length - 1]
           let windowObj = new Window(newWindow)
