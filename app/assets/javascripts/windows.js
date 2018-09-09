@@ -29,16 +29,16 @@ function windowClickHandlers() {
         //e.preventDefault()
         console.log($(this).attr('data-id'))
         let id = $(this).attr('data-id')
-        var values = $(this).serialize();
+        const values = $(this).serialize();
         $.post(`/sites/${id}/windows.json`, values).done(function(resp){
-          //debugger
+          debugger
           let length = resp.windows.length
           let newWindow = resp.windows[length - 1]
           let windowObj = new Window(newWindow)
-          let windowHtml = windowObj.formatIndex()
+          let windowHtml = windowObj.formatSiteWindow()
           $('#app-container').append(windowHtml)
         })
-        console.log($(this).serialize())
+        //console.log($(this).serialize())
       })
 
     const getWindows = () => {
@@ -72,6 +72,19 @@ Window.prototype.formatIndex = function(){
   let windowHtml = `
     <div class="col-lg-4 col-sm-6 portfolio-item">
       <img class="card-img-top" src="${this.image}">
+      <div class="card h-100">
+        <a href="sites/${this.site_id}/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+         <h2>${this.year_created}</h2>
+          <p>${this.dedication}</p>
+      </div>
+    </div>
+  `
+  return windowHtml
+}
+
+Window.prototype.formatSiteWindow = function(){
+  let windowHtml = `
+    <div class="col-lg-4 col-sm-6 portfolio-item">
       <div class="card h-100">
         <a href="sites/${this.site_id}/windows/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
          <h2>${this.year_created}</h2>
