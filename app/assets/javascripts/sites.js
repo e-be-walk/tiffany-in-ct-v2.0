@@ -27,7 +27,7 @@ function bindClickHandlers() {
   })
 
   $(document).on('click', '.next-site', function() {
-    console.log($(this).attr('data-id'))
+    //console.log($(this).attr('data-id'))
     let id = $(this).attr('data-id')
     fetch(`/sites/${id}/next.json`)
     .then(res => res.json())
@@ -53,11 +53,12 @@ function bindClickHandlers() {
   }
 }
 
-
+//ES5 constructor function- how to alter to ES6 should be known
 function Site(site){
   this.id = site.id
   this.image = site.image
   this.name = site.name
+  //camelcase for streetAddress
   this.street_address = site.street_address
   this.city = site.city
 }
@@ -95,7 +96,7 @@ Site.prototype.formatShow = function(){
       <input type="text" name="window[year_created]" id="window_year_created">
       <h3>Dedication: </h3>
       <input type="text" name="window[dedication]" id="window_dedication">
-  
+
       <div id="newWindow">
       <input value="${this.id}" data-id="${this.id}" type="hidden" name="window[site_id]" id="window_site_id">
       <br>

@@ -6,8 +6,13 @@ function windowClickHandlers() {
   $('.all_windows').on('click', e => {
     e.preventDefault()
     //debugger
-    history.pushState(null, null, null, null, "windows")
+    history.pushState(null, null, "windows")
     getWindows()
+  })
+
+  $('.sort-alphabetically').on('click', e => {
+    e.preventDefault()
+    getSortedWindows()
   })
 
   $(document).on('click', '#show-windows-js', function(e) {
@@ -41,6 +46,33 @@ function windowClickHandlers() {
         })
         //console.log($(this).serialize())
       })
+
+
+      const getSortedWindows = () => {
+        fetch(`/windows.json`)
+        //console.log(data)
+        .then(res => res.json())
+        .then(windows => {
+          //console.log(windows)
+          $('#app-container').html('')
+          let sortedWindows = windows.sort(function (a, b){
+            var nameA = a.name.toUpperCase();
+            var nameB = b.name.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          });
+          sortedWindows.forEach(windows => {
+            let newWindow = new Window(windows)
+            let windowHtml = newWindow.formatIndex()
+            $('#app-container').append(windowHtml)
+          })
+        })
+      }
 
     const getWindows = () => {
       fetch(`/windows.json`)
